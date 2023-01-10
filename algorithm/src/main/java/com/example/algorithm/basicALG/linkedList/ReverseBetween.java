@@ -1,30 +1,13 @@
-package com.example.algorithm.basicALG;
+package com.example.algorithm.basicALG.linkedList;
+
+import com.example.algorithm.basicALG.model.ListNode;
+import com.example.algorithm.basicALG.testCase.ListNodeTest;
 
 /**
- * @author 陶天阳
- * @version V1.0
- * @Title: test
- * @Package com.example.algorithm.basicALG
- * @date 2022/11/03 22:16
- * @Copyright © 2020-2021 张家港众德电子科技有限公司
+ * 区间链表反转
  */
+public class ReverseBetween {
 
-class ListNode {
-    int val;
-    ListNode next = null;
-
-    public ListNode(int i) {
-        this.val = i;
-    }
-}
-
-public class test {
-    /**
-     * @param head ListNode类
-     * @param m    int整型
-     * @param n    int整型
-     * @return ListNode类
-     */
     public ListNode reverseBetween(ListNode head, int m, int n) {
         //加个表头
         ListNode res = new ListNode(-1);
@@ -68,20 +51,8 @@ public class test {
     }
 
     public static void main(String[] args) {
-        ListNode l1 = new ListNode(1);
-        ListNode l2 = new ListNode(2);
-        ListNode l3 = new ListNode(3);
-        ListNode l4 = new ListNode(4);
-        ListNode l5 = new ListNode(5);
-        ListNode l6 = new ListNode(6);
-        ListNode l7 = new ListNode(7);
-        l1.next = l2;
-        l2.next = l3;
-        l3.next = l4;
-        l4.next = l5;
-        l5.next = l6;
-        l6.next = l7;
-        test reverse = new test();
+        ListNode l1 = ListNodeTest.testCase1();
+        ReverseBetween reverse = new ReverseBetween();
         ListNode listNode = reverse.reverseBetween(l1, 2, 4);
         String s = reverse.printListNode(listNode);
     }
