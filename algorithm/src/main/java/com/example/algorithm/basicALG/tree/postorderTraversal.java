@@ -1,6 +1,7 @@
 package com.example.algorithm.basicALG.tree;
 
 import com.example.algorithm.basicALG.model.TreeNode;
+import com.example.algorithm.basicALG.testCase.TreeTest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,5 +31,12 @@ public class postorderTraversal {
             list.add(root.val);
         }
     }
-    
+
+    public static void main(String[] args) {
+        TreeNode treeNode = TreeTest.treeCase1();
+        int[] ints = new postorderTraversal().postorderTraversal(treeNode);
+        for (int i : ints){
+            System.out.print(i+",");
+        }
+    }
 }

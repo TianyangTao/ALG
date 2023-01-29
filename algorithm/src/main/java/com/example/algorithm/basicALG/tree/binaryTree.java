@@ -2,8 +2,10 @@ package com.example.algorithm.basicALG.tree;
 
 
 import com.example.algorithm.basicALG.model.TreeNode;
+import com.example.algorithm.basicALG.testCase.TreeTest;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -43,6 +45,8 @@ public class binaryTree {
         return res;
     }
     public static void main(String[] args) {
-
+        TreeNode treeNode = TreeTest.treeCase1();
+        int[] ints = new binaryTree().preorderTraversal(treeNode);
+        System.out.printf(Arrays.toString(ints));
     }
 }
