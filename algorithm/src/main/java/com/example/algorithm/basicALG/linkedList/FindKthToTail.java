@@ -5,7 +5,13 @@ import com.example.algorithm.basicALG.model.ListNode;
 import java.util.Stack;
 
 public class FindKthToTail {
-    public ListNode FindKthToTail (ListNode pHead, int k) {
+    /**
+     * 基于栈的方法
+     * @param pHead
+     * @param k
+     * @return
+     */
+    public ListNode FindKthToTail_stack (ListNode pHead, int k) {
         if (k == 0 || pHead == null){
             return null;
         }
@@ -26,6 +32,30 @@ public class FindKthToTail {
         return firstNode;
     }
 
+    /**
+     * 快慢指针
+     * @param pHead
+     * @param k
+     * @return
+     */
+    public ListNode FindKthToTail (ListNode pHead, int k) {
+        if (k == 0 || pHead == null){
+            return null;
+        }
+        ListNode fast = pHead;
+        ListNode slow = pHead;
+        while (k-- > 0){
+            fast = fast.next;
+            if (fast == null && k >= 1){
+                return null;
+            }
+        }
+        while (fast != null){
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return slow;
+    }
     public static void main(String[] args) {
         ListNode l1 = new ListNode(1);
         ListNode l2 = new ListNode(2);
