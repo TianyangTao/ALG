@@ -27,4 +27,39 @@ public class SortInList {
         }
         return head;
     }
+    public ListNode sortInList_Node (ListNode head) {
+        // write code here
+        ListNode firstNode = head;
+        ListNode temp = null;
+        ListNode pre = null;
+        // 存下后面节点
+        // 交换首节点
+        // 实现分离
+        while (firstNode != null){
+            // 翻转
+            temp = firstNode.next;
+            firstNode.next = pre;
+            pre = firstNode;
+            firstNode = temp;
+        }
+        return pre;
+    }
+    public static String printListNode(ListNode head){
+        StringBuffer stringBuffer = new StringBuffer();
+        while (head != null){
+            stringBuffer.append(head.val+",");
+            head = head.next;
+        }
+        return stringBuffer.toString();
+    }
+    public static void main(String[] args) {
+        ListNode l1=new ListNode(1);
+        ListNode l2=new ListNode(2);
+        ListNode l3=new ListNode(3);
+        l1.next=l2;
+        l2.next=l3;
+        SortInList sortInList = new SortInList();
+        ListNode listNode = sortInList.sortInList_Node(l1);
+        System.out.println(sortInList.printListNode(listNode));
+    }
 }
